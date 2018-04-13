@@ -1,6 +1,9 @@
 #Competitive-Programing
+
 ##Programing Notes
+
 ###Templete
+
 - templete
 
 ###Data Structure
