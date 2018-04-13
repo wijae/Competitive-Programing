@@ -5,7 +5,7 @@
 ### Templete
 - templete
 
-###Data Structure
+### Data Structure
 - disjoint set
 - disjoint set with rank
 - fenwick tree
