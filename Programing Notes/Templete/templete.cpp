@@ -1,3 +1,4 @@
+//#include <bits/stdc++.h>
 #include <cstdio>
 #include <cmath>
 #include <cstring>
@@ -15,6 +16,7 @@ typedef pair<int, int> pii;
 int main(){
 	//freopen("input.txt","r",stdin);
 	//freopen("output.txt","w",stdout);
+	//std::ios::sync_with_stdio(false);
 
 	return 0;
 }
