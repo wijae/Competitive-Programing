@@ -14,7 +14,7 @@
 - segment tree
 - segment tree 2D
 
-###Mathmatics
+### Mathmatics
 - prime test
 - prime count
 - prime factorization
@@ -22,6 +22,6 @@
 - eculidean algorithm
 - matrix
 
-###String
+### String
 - KMP
 - trie
