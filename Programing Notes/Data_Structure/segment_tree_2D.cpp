@@ -1,5 +1,6 @@
 const int XN=1<<10, YN=1<<10;
 const ll init_val = 0;
+
 struct Segemnt2D{
 	ll tree[2*XN+1][2*YN+1];
 	ll f(ll a, ll b){return max(a,b);};

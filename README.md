@@ -13,6 +13,7 @@
 - fenwick tree 2D
 - segment tree
 - segment tree 2D
+- segment tree lazy propagation
 
 ### Mathmatics
 - prime test
