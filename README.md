@@ -26,3 +26,4 @@
 ### String
 - KMP
 - trie
+- suffix tree with LCP
