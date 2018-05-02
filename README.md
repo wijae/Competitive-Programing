@@ -34,3 +34,5 @@
 
 ### Geometry
 - coordinate compression
+- convex hull
+- convex hull integer
