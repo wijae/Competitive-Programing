@@ -15,6 +15,10 @@
 - segment tree 2D
 - segment tree lazy propagation
 
+### Graph
+- kruskal algorithm
+- prim algorithm
+
 ### Mathmatics
 - prime test
 - prime count
