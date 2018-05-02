@@ -31,3 +31,6 @@
 - KMP
 - trie
 - suffix tree with LCP
+
+### Geometry
+- coordinate compression
