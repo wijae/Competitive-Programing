@@ -15,6 +15,11 @@
 - segment tree 2D
 - segment tree lazy propagation
 
+### Flow and Cut
+- ford-fulkerson algorithm
+- edmonds-karp algorithm
+- dinic algorithm
+
 ### Graph
 - kruskal algorithm
 - prim algorithm
