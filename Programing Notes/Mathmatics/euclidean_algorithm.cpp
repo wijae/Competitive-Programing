@@ -1,16 +1,9 @@
 ll gcd(ll a, ll b){
-	if (b==0) return a;
-	return  extended_gcd(b, a%b);
+	return b==0 ? a : gcd(b, a%b);
 }
 
 pair<ll ,ll> extended_gcd(ll a, ll b){
-	if (b==0) return make_pair(1,0);
-	pair<ll ,ll> t = extended_gcd(b, a%b);
-	return make_pair(t.second, t.first - t.second*(a/b));
-}
-
-pair<ll ,ll> extended_gcd(ll a, ll b){
-	if (b==0) return make_pair(1,0);
-	pair<ll ,ll> t = extended_gcd(b, a%b);
-	return make_pair(t.second, t.first - t.second*(a/b));
+	if (b==0) return {1, 0};
+	auto t = extended_gcd(b, a%b);
+	return {t.second, t.first - t.second*(a/b)};
 }
