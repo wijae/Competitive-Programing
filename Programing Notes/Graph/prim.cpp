@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
 const int N = 1e6;
 vector<pair<int, int>> edge[N];
 priority_queue<pair<int, int>> q;

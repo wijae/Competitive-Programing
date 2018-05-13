@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
 const int N = 1e5, M=1e6;
 Disjoint D;
 tuple<int, int, int> edge[M];
