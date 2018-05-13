@@ -1,7 +1,12 @@
-const int N = 1<<20;
-const ll init_val = 0;
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
 
 class Segment{
+	const static int N = 1<<20;
+	const static ll init_val = 0;
+
 	ll tree[2*N+1], lazy[2*N+1];
 	inline ll f(ll a, ll b){return a+b;}
 	inline ll fn(ll a, int n){return a*n;}

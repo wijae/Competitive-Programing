@@ -1,6 +1,10 @@
-const int N = 1e6;
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
 
 struct Disjoint(){
+	const static int N = 1e6;
 	int parent[N];
 		
 	disjoint(){

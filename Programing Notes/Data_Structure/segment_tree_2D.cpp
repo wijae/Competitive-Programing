@@ -1,7 +1,12 @@
-const int XN=1<<10, YN=1<<10;
-const ll init_val = 0;
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
 
 struct Segemnt2D{
+	const static int XN=1<<10, YN=1<<10;
+	const static ll init_val = 0;
+	
 	ll tree[2*XN+1][2*YN+1];
 	ll f(ll a, ll b){return max(a,b);};
 

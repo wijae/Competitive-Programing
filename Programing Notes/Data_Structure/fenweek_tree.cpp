@@ -1,5 +1,10 @@
-const int N = 1e6;
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
 struct Fenwick{
+	const static int N = 1e6;
 	ll tree[N];
 
 	Fenwick(){

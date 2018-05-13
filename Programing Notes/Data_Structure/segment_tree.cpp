@@ -1,7 +1,12 @@
-const int N = 1<<20;
-const ll init_val = 1, MOD=1e9+7;
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
 
 struct Segment{
+	const static int N = 1<<20;
+	const static ll init_val = 1, MOD=1e9+7;
+
 	ll tree[2*N+1];
 	ll f(ll a, ll b){return (a*b)%MOD;}
 

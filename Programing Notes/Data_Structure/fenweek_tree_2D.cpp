@@ -1,5 +1,10 @@
-const int XN=5.1e3, YN=5.1e3;
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
 struct Fenick2D{
+	const static int XN=5.1e3, YN=5.1e3;
 	ll tree[XN][YN];
 
 	Fenwick2D(){

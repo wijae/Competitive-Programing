@@ -1,3 +1,8 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
 const int N = 1100000;
 int parent[N], rank[N];
 
