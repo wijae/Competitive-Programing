@@ -25,6 +25,7 @@
 - prim algorithm
 
 ### Mathmatics
+- fast fourier transform
 - prime test
 - prime count
 - prime factorization
