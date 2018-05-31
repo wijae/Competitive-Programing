@@ -2,8 +2,10 @@
 
 ## Programing Notes
 
-### Templete
-- templete
+## c++
+- vscode snipet: cpp.json
+- fast input
+- osrank in g++
 
 ### Data Structure
 - disjoint set

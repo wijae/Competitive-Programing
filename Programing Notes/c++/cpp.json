@@ -1,0 +1,600 @@
+{
+
+	"templete c++": {
+		"prefix": "templete__c++",
+		"body": [
+			"#include <bits/stdc++.h>",
+    	"#define endl \"\\n\"",
+			"",
+			"using namespace std;",
+			"using ll = long long;",
+			"",
+			"int main(){",
+			"	//ios::sync_with_stdio(false);",
+			"	//cin.tie(NULL);",
+			"",
+			"	return 0;",
+			"}"
+		],
+		"description": "templete c++"
+	},	
+	"templete c++ gcj": {
+		"prefix": "templete__c++_gcj",
+		"body": [
+			"#include <bits/stdc++.h>",
+    	"#define endl \"\\n\"",
+			"",
+			"using namespace std;",
+			"using ll = long long;",
+			"",
+			"ll solve(){",
+			"	return -1;		",
+			"}",
+			"",
+			"int main(){",
+			"	//ios::sync_with_stdio(false);",
+			"	//cin.tie(NULL);",
+			"",
+			"	int t;",
+			"	cin >> t;",
+			"",
+			"	for(int i=1; i<=t; i++){",
+			"		ll s = solve();",
+			"		cout << \"Case #\" << i << \": \" << s << endl;",
+			"	}",
+			"",
+			"	return 0;",
+			"}"
+		],
+		"description": "templete c++ gcj"
+	},
+
+
+
+
+
+
+
+	
+	"g++ progma": {
+		"prefix": "templete__pragma",
+		"body": [
+			"#pragma comment(linker, \"/stack:200000000\")",
+			"#pragma GCC optimize(\"Ofast\")",
+			"#pragma GCC target(\"sse,sse2,sse3,ssse3,sse4,popcnt,abm,mmx,avx,tune=native\")"
+		],
+		"description": "g++ progma"
+	},
+	"templete include": {
+		"prefix": "templete__include",
+		"body": [
+			"#include <bits/stdc++.h>",
+    	"#define endl \"\\n\"",
+			"",
+			"using namespace std;",
+			"using ll = long long;"
+		],
+		"description": "templete include"
+	},
+	"main": {
+		"prefix": "templete__main",
+		"body": [
+			"int main(){",
+			"	//ios::sync_with_stdio(false);",
+			"	//cin.tie(NULL);",
+			"",
+			"	return 0;",
+			"}"
+		],
+		"description": "main"
+	},
+
+
+
+
+
+
+
+
+
+
+
+	"fast input": {
+		"prefix": "templete__fin",
+		"body": [
+			"namespace fin{",
+			"	static char buf[1 << 20]; // size : any number geq than 1024",
+			"	static int idx = 0;",
+			"	static int bytes = 0;",
+			"	static inline int _read() {",
+			"		if (!bytes || idx == bytes) {",
+			"			bytes = (int)fread(buf, sizeof(buf[0]), sizeof(buf), stdin);",
+			"			idx = 0;",
+			"		}",
+			"		return buf[idx++];",
+			"	}",
+			"	static inline int Int() {",
+			"		int x = 0, s = 1;",
+			"		int c = _read();",
+			"		while (c <= 32) c = _read();",
+			"		if (c == '-') s = -1, c = _read();",
+			"		while (c > 32) x = 10 * x + (c - '0'), c = _read();",
+			"		if (s < 0) x = -x;",
+			"		return x;",
+			"	}",
+			"}",
+			""
+		],
+		"description": "fast input"
+	},
+
+	"osrank in g++": {
+		"prefix": "templete__osrank",
+		"body": [
+			"#include <ext/pb_ds/assoc_container.hpp>",
+			"#include <ext/pb_ds/tree_policy.hpp>",
+			"using namespace __gnu_pbds;",
+			"using ordered_set = tree<int, null_type, less<int>, rb_tree_tag,tree_order_statistics_node_update>;"
+		],
+		"description": "osrank in g++"
+	},
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	"network flow (ford fullkerson)": {
+		"prefix": "templete_flow",
+		"body": [
+			"struct maxflow{",
+			"	const static int N = 1000;",
+			"	vector<int> edge[N];",
+			"	ll cap[N][N];",
+			"	ll back[N];",
+			"",
+			"	void add_edge(int a, int b, ll c){",
+			"		cap[a][b] = c;",
+			"		edge[a].push_back(b);",
+			"		edge[b].push_back(a);",
+			"	}",
+			"",
+			"	void dfs(int now, int t){",
+			"		if(now == t) return;",
+			"",
+			"		for(int i : edge[now]){",
+			"			if(back[i]<0 && cap[now][i]>0){",
+			"				back[i] = now;",
+			"				dfs(i, t);",
+			"			}",
+			"		}",
+			"	}",
+			"",
+			"	ll calc(int s, int t){",
+			"		ll ans = 0;",
+			"		while(true){",
+			"			//run dfs",
+			"			fill(back, back+N, -1);",
+			"			dfs(s,t);",
+			"			if(back[t]<0) break;",
+			"",
+			"			//calculate flow",
+			"			ll f = 1LL<<60;",
+			"			for(int now=t; now!=s; now=back[now])",
+			"				f = min(f, cap[back[now]][now]);",
+			"",
+			"			//push flow",
+			"			ans += f;",
+			"			for(int now=t; now!=s; now=back[now]){",
+			"				int b = back[now];",
+			"				cap[b][now] -= f;",
+			"				cap[now][b] += f;",
+			"			}",
+			"		}",
+			"		return ans;",
+			"	}",
+			"}mf;"
+		],
+		"description": "network flow (ford fullkerson)"
+	},
+	"network flow (edmond karp)": {
+		"prefix": "templete_flow_edmond",
+		"body": [
+			"struct maxflow{",
+			"	const static int N = 2000;",
+			"	vector<int> edge[N];",
+			"	ll cap[N][N];",
+			"	ll back[N];",
+			"",
+			"	void add_edge(int a, int b, ll c){",
+			"		cap[a][b] = c;",
+			"		edge[a].push_back(b);",
+			"		edge[b].push_back(a);",
+			"	}",
+			"",
+			"	void bfs(int s, int t){",
+			"		queue<int> que;",
+			"		que.push(s);",
+			"",
+			"		while(!que.empty() && back[t]<0){",
+			"			int now = que.front();",
+			"			que.pop();",
+			"			for(int i: edge[now]){",
+			"				if(back[i]<0 && cap[now][i]>0){",
+			"					que.push(i);",
+			"					back[i] = now;",
+			"				}",
+			"			}",
+			"		}",
+			"	}",
+			"",
+			"	ll calc(int s, int t){",
+			"		ll ans = 0;",
+			"		while(true){",
+			"			//run bfs",
+			"			fill(back, back+N, -1);",
+			"			bfs(s,t);",
+			"			if(back[t]<0) break;",
+			"",
+			"			//calculate flow",
+			"			ll f = 1LL<<60;",
+			"			for(int now=t; now!=s; now=back[now])",
+			"				f = min(f, cap[back[now]][now]);",
+			"",
+			"			//push flow",
+			"			ans += f;",
+			"			for(int now=t; now!=s; now=back[now]){",
+			"				int b = back[now];",
+			"				cap[b][now] -= f;",
+			"				cap[now][b] += f;",
+			"			}",
+			"		}",
+			"		return ans;",
+			"	}",
+			"}mf;"
+		],
+		"description": "network flow (edmond karp)"
+	},
+	"network flow (dinic)": {
+		"prefix": "templete_flow_dinic",
+		"body": [
+			"struct maxflow{",
+			"	const static int N = 5000;",
+			"	vector<int> edge[N];",
+			"	ll cap[N][N];",
+			"	ll level[N], back[N];",
+			"",
+			"	void add_edge(int a, int b, ll c){",
+			"		cap[a][b] = c;",
+			"		edge[a].push_back(b);",
+			"		edge[b].push_back(a);",
+			"	}",
+			"",
+			"	void lbfs(int s, int t){",
+			"		queue<int> que;",
+			"		que.push(s);",
+			"		level[s] = 0;",
+			"",
+			"		while(!que.empty()){",
+			"			int now = que.front();",
+			"			que.pop();	",
+			"",
+			"			for(int i: edge[now]){",
+			"				if(level[i]<0 && cap[now][i]>0){",
+			"					que.push(i);",
+			"					level[i] = level[now]+1;",
+			"				}",
+			"			}",
+			"		}",
+			"	}",
+			"",
+			"	void dfs(int now, int t){",
+			"		if(now == t) return;",
+			"",
+			"		for(int i: edge[now]){",
+			"			if(level[now]+1==level[i] && back[i]<0 && cap[now][i]>0){",
+			"				back[i] = now;",
+			"				dfs(i, t);",
+			"			}",
+			"		}",
+			"	}",
+			"",
+			"	ll calc(int s, int t){",
+			"		ll ans = 0;",
+			"		while(true){",
+			"			//find level",
+			"			fill(level, level+N, -1);",
+			"			lbfs(s,t);",
+			"			if(level[t]<0) break;",
+			"",
+			"			while(true){",
+			"				//run dfs",
+			"				fill(back, back+N, -1);",
+			"				dfs(s,t);",
+			"				if(back[t]<0) break;",
+			"",
+			"				//calculate flow",
+			"				ll f = 1LL<<60;",
+			"				for(int now=t; now!=s; now=back[now])",
+			"					f = min(f, cap[back[now]][now]);",
+			"",
+			"				//push flow",
+			"				ans += f;",
+			"				for(int now=t; now!=s; now=back[now]){",
+			"					cap[back[now]][now] -= f;",
+			"					cap[now][back[now]] += f;",
+			"				}",
+			"			}",
+			"		}",
+			"		return ans;",
+			"	}",
+			"}mf;"
+		],
+		"description": "network flow (dinic)"
+	},
+
+
+
+
+
+
+
+
+
+
+
+	"disjoint set": {
+		"prefix": "templete_disjoint_set",
+		"body": [
+			"struct Disjoint(){",
+			"	const static int N = 1e6;",
+			"	int parent[N];",
+			"		",
+			"	disjoint(){",
+			"		for(int i=0; i<N; i++)",
+			"			parent[i] = i;",
+			"	}",
+			"		",
+			"	int find(int i){",
+			"		return parent[i]==i ? i : (parent[i] = find(parent[i]));    ",
+			"	}",
+			"		",
+			"	void union(int a, int b){",
+			"		a = find(a), b = find(b);",
+			"		parent[b] = a;",
+			"	}",
+			"}D;"
+		],
+		"description": "disjoint set"
+	},
+
+	"fenwick tree": {
+		"prefix": "templete_fenwick",
+		"body": [
+			"struct Fenwick{",
+			"	const static int N = 1e6;",
+			"	ll tree[N];",
+			"",
+			"	Fenwick(){",
+			"		for(int i=1; i<N; i++)",
+			"			tree[i] = 0;",
+			"	}",
+			"		",
+			"	void update(int i, ll val){",
+			"		for(; i<N; i+=(i&-i))",
+			"			tree[i] += val;",
+			"	}",
+			"	",
+			"	ll query(int i){",
+			"		ll ans = 0;",
+			"		for(; i>0; i-=(i&-i))",
+			"			ans += tree[i];",
+			"			",
+			"		return ans;",
+			"	}",
+			"}F;"
+		],
+		"description": "fenwick tree"
+	},
+
+	"segment tree": {
+		"prefix": "templete_segment",
+		"body": [
+			"struct Segment{",
+			"	const static int N = 1<<20;",
+			"	const static ll init_val = 1, MOD=1e9+7;",
+			"",
+			"	ll tree[2*N+1];",
+			"	ll f(ll a, ll b){return (a*b)%MOD;}",
+			"",
+			"	Segment(){",
+			"		for(int i=1; i<=2*N; i++)",
+			"			tree[i] = init_val;",
+			"	}",
+			"",
+			"	void update(int i, ll val){",
+			"		tree[i+N] = val;",
+			"		for(i+=N; i/=2;)",
+			"			tree[i] = f(tree[2*i], tree[2*i+1]);",
+			"	}",
+			"",
+			"	ll query(int a, int b){",
+			"		ll ans = init_val;",
+			"		for(a+=N,b+=N; a<=b; a=(a+1)/2,b=(b-1)/2){",
+			"			if(a&1) ans = f(ans, tree[a]);",
+			"			if(!(b&1)) ans = f(ans, tree[b]);",
+			"		}",
+			"		return ans;",
+			"	}",
+			"}S;"
+		],
+		"description": "segment tree"
+	},
+
+	"segment tree lazy propagation": {
+		"prefix": "templete_segment_lazy",
+		"body": [
+			"class Segment{",
+			"	const static int N = 1<<20;",
+			"	const static ll init_val = 0;",
+			"",
+			"	ll tree[2*N+1], lazy[2*N+1];",
+			"	inline ll f(ll a, ll b){return a+b;}",
+			"	inline ll fn(ll a, int n){return a*n;}",
+			"",
+			"	void _prop(int n, int ns, int ne){",
+			"		tree[n] = f(tree[n], fn(lazy[n], (ne-ns+1)));",
+			"		if (ns != ne){",
+			"			lazy[2*n] = f(lazy[2*n], lazy[n]);",
+			"			lazy[2*n+1] = f(lazy[2*n+1], lazy[n]);",
+			"		}",
+			"		lazy[n] = init_val;",
+			"	}",
+			"",
+			"	void _update(int n, int ns, int ne, int a, int b, ll val){",
+			"		if(lazy[n] != init_val) _prop(n, ns, ne);",
+			"		if (a > ne || b < ns) return;",
+			"		if (a <= ns && ne <= b){",
+			"			tree[n] = f(tree[n], fn(val, (ne-ns+1)));",
+			"			if (ns != ne){",
+			"				lazy[2*n] = f(lazy[2*n], val);",
+			"				lazy[2*n+1] = f(lazy[2*n+1], val);",
+			"			}",
+			"		}",
+			"		else{",
+			"			_update(2*n, ns, (ns+ne)/2, a, b, val);",
+			"			_update(2*n+1, (ns+ne)/2+1, ne, a, b, val);",
+			"			tree[n] = f(tree[2*n], tree[2*n+1]);",
+			"		}",
+			"	}",
+			"",
+			"	ll _query(int n, int ns, int ne, int a, int b){",
+			"		if(lazy[n] != init_val) _prop(n, ns, ne);",
+			"		if (a > ne || b < ns) return init_val;",
+			"		if (a <= ns && ne <= b) return tree[n];",
+			"		return f(_query(2*n, ns, (ns+ne)/2, a, b), _query(2*n+1, (ns+ne)/2+1, ne, a, b));",
+			"	}",
+			"",
+			"	public:",
+			"		Segment(){",
+			"			for(int i=1; i<=2*N; i++){",
+			"				tree[i] = init_val;",
+			"				lazy[i] = init_val;",
+			"			}",
+			"		}",
+			"",
+			"		inline void update(int a, int b, ll val){",
+			"			_update(1, 1, N, a, b, val);",
+			"		}",
+			"",
+			"		inline ll query(int a, int b){",
+			"			return  _query(1, 1, N, a, b);",
+			"		}",
+			"}S;"
+		],
+		"description": "segment tree lazy propagation"
+	},
+
+
+
+
+
+
+
+
+	"gcd": {
+		"prefix": "templete_gcd",
+		"body": [
+			"ll gcd(ll a, ll b){",
+			"	return b==0 ? a : gcd(b, a%b);",
+			"}",
+			"",
+			"pair<ll ,ll> extended_gcd(ll a, ll b){",
+			"	if (b==0) return {1, 0};",
+			"	auto t = extended_gcd(b, a%b);",
+			"	return {t.second, t.first - t.second*(a/b)};",
+			"}"
+		],
+		"description": "gcd"
+	},
+
+	"fast fourier transform": {
+		"prefix": "templete_fft",
+		"body": [
+			"using cdouble = complex<double>;",
+			"",
+			"void fft(vector <cdouble> &a, int sgn)",
+			"{",
+			"	int n = a.size();",
+			"	for (int i=1,j=0,t; i<n; i++){",
+			"		for (t=n>>1; j>=t; j-=t, t>>=1);",
+			"		j += t;",
+			"		if (i < j) swap(a[i],a[j]);",
+			"	}",
+			"",
+			"	for (int i=2; i<=n; i<<=1){",
+			"		double ang = sgn*2*acos(-1)/i;",
+			"		cdouble wi(cos(ang),sin(ang));",
+			"",
+			"		for (int j=0; j<n; j+=i){",
+			"			cdouble w(1);",
+			"			for (int k=0; k<i/2; k++){",
+			"				cdouble u = a[j+k];",
+			"				cdouble v = a[j+k+i/2]*w;",
+			"				a[j+k] = u+v;",
+			"				a[j+k+i/2] = u-v;",
+			"				w *= wi;",
+			"			}",
+			"		}",
+			"	}",
+			"}",
+			"",
+			"vector<double> multiply(vector<double> &v, vector<double> &w)",
+			"{",
+			"	int n;",
+			"	for(n=1; n<v.size()+w.size(); n<<=1);",
+			"",
+			"	vector<cdouble> fv(v.begin(), v.end());",
+			"	vector<cdouble> fw(w.begin(), w.end());",
+			"	fv.resize(n);",
+			"	fw.resize(n);",
+			"	fft(fv, 1);",
+			"	fft(fw, 1);",
+			"",
+			"	for (int i=0; i<n; i++) ",
+			"		fv[i] *= fw[i];",
+			"	",
+			"	fft(fv, -1);",
+			"	",
+			"	vector<double> res(n);",
+			"	for (int i=0;i<n;i++) ",
+			"		res[i] = fv[i].real()/n;",
+			"",
+			"	return res;",
+			"}"
+		],
+		"description": "fast fourier transform"
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
